@@ -5,7 +5,7 @@
 
 ## Use
 
-### gradle:
+### #gradle:
 
 #### Step 1. Add the JitPack repository to your build file
 
@@ -25,7 +25,7 @@ Add it in your root build.gradle at the end of repositories:
 	        compile 'com.github.Beseting:PhotoBrowse:v1.0'
 	}
 	
-### maven:
+### #maven:
 
 	<repositories>
 		<repository>
