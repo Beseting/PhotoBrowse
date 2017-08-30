@@ -28,7 +28,7 @@
 #### 2.添加依赖
 
 	dependencies {
-	        compile 'com.github.Beseting:PhotoBrowse:v1.0.0'
+	        compile 'com.github.Beseting:PhotoBrowse:v1.0'
 	}
 	
 ### #maven:
@@ -43,10 +43,11 @@
 #### 2.添加依赖
 
 	<dependency>
-	    <groupId>com.github.User</groupId>
-	    <artifactId>Repo</artifactId>
-	    <version>Tag</version>
+	    <groupId>com.github.Beseting</groupId>
+	    <artifactId>PhotoBrowse</artifactId>
+	    <version>v1.0</version>
 	</dependency>
+
 	
 ## Use
 
