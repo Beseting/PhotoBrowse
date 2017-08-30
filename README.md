@@ -15,7 +15,7 @@
 
 ### #gradle:
 
-     1.在项目的build.gradle中
+#### 1.在项目的build.gradle中
 
 
 	allprojects {
@@ -25,14 +25,16 @@
 		}
 	}
 	
-     2.添加依赖
+#### 2.添加依赖
 
 	dependencies {
 	        compile 'com.github.Beseting:PhotoBrowse:v1.0'
 	}
 	
 ### #maven:
-     1.maven仓库
+
+#### 1.添加maven仓库
+
 	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -40,7 +42,7 @@
 		</repository>
 	</repositories>
 	
-     2.添加依赖
+#### 2.添加依赖
 
 	<dependency>
 	    <groupId>com.github.Beseting</groupId>
