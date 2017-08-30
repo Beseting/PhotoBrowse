@@ -6,7 +6,8 @@
 Use
 ====
 
-<b>gradle:</b>
+#gradle:
+---------
 
 Step 1. Add the JitPack repository to your build file
 
@@ -26,7 +27,8 @@ Step 2. Add the dependency
 	        compile 'com.github.Beseting:PhotoBrowse:v1.0'
 	}
 	
-<b>or maven:</b>
+maven:
+---------
 
 
 	<repositories>
