@@ -3,7 +3,11 @@
 
 [![](https://jitpack.io/v/Beseting/PhotoBrowse.svg)](https://jitpack.io/#Beseting/PhotoBrowse)
 
-<h1b>Use:</h1><hr />
+How to
+====
+
+To get a Git project into your build:
+
 Step 1. Add the JitPack repository to your build file
 
 gradle:
