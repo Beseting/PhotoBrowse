@@ -7,7 +7,7 @@
 
 ![PhotoBrowse](https://github.com/Beseting/PhotoBrowse/blob/master/app/src/main/res/raw/preview.png "Preview")  
 
-## Use
+## Download
 
 ### #gradle:
 
@@ -45,3 +45,27 @@ Add it in your root build.gradle at the end of repositories:
 	    <artifactId>Repo</artifactId>
 	    <version>Tag</version>
 	</dependency>
+	
+## Use
+
+#### #单张网络图片
+
+	ImageBrowseIntent.showUrlImageBrowse(mContext,"...");
+	
+#### #多张网络图片
+
+	ArrayList<String> imageList = new ArrayList<>();
+	imageList.add("...");
+	...
+	ImageBrowseIntent.showUrlImageBrowse(mContext,imageList,position);
+	
+#### #单张资源图片
+
+	ImageBrowseIntent.showResIdImageBrowse(mContext,R.mipmap.xxx);
+	
+#### #多张资源图片
+
+	ArrayList<Integer> imageResList = new ArrayList<>();
+	imageResList.add(R.mipmap.xxx);
+	...
+	ImageBrowseIntent.showResIdImageBrowse(mContext,imageResList,position);
