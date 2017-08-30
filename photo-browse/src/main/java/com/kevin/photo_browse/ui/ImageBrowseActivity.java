@@ -1,6 +1,5 @@
 package com.kevin.photo_browse.ui;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +31,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
     private CircleIndicator indicator;
 
     //类型枚举标志
-    public static int[] FLAG_ENUM = new int[]{0,1,2,3,4,5};
+    public static int[] FLAG_ENUM = new int[]{0,1,2,3};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,20 +95,6 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 GlideUtils.load(this,bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE),res_id_photo_view,true);
                 views.add(resIdView);
                 indicator.setVisibility(View.GONE);
-                break;
-            case 4://Bitmap组
-                List<Bitmap> bitmapList = (List<Bitmap>) bundle.getSerializable(ImageBrowseIntent.PARAM_BITMAP_GROUP);
-                //动态添加View
-                for (int i = 0; i < bitmapList.size(); i++) {
-                    View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
-                    PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    GlideUtils.load(this,bitmapList.get(i),photo_view,true);
-                    views.add(view);
-                }
-                indicator.setVisibility(View.VISIBLE);
-                break;
-            case 5://Bitmap单
-
                 break;
             default:break;
         }

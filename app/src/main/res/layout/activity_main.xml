@@ -34,11 +34,18 @@
         android:text="多张资源图片浏览"
         android:layout_margin="10dp" />
 
-    <Button
-        android:id="@+id/btn_bitmap_group"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="多张Bitmap浏览"
-        android:layout_margin="10dp" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by Beseting@Kevin"
+            android:textSize="12sp"
+            android:textColor="#666"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -1,8 +1,6 @@
 package com.kevin.photobrowse;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,11 +9,10 @@ import android.widget.Button;
 import com.kevin.photo_browse.ImageBrowseIntent;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
-    private Button btn_url_single,btn_url_group,btn_res_single,btn_res_group,btn_bitmap_group;
+    private Button btn_url_single,btn_url_group,btn_res_single,btn_res_group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         btn_url_group = (Button) findViewById(R.id.btn_url_group);
         btn_res_single = (Button) findViewById(R.id.btn_res_single);
         btn_res_group = (Button) findViewById(R.id.btn_res_group);
-        btn_bitmap_group = (Button) findViewById(R.id.btn_bitmap_group);
 
         //浏览单张网络图片
         btn_url_single.setOnClickListener(new View.OnClickListener() {
@@ -67,18 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 imageResList.add(R.mipmap.wyz);
                 imageResList.add(R.mipmap.ywl);
                 ImageBrowseIntent.showResIdImageBrowse(mContext,imageResList,0);
-            }
-        });
-
-        //浏览多张Bitmap
-        btn_bitmap_group.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                List<Bitmap> bitmapList = new ArrayList<>();
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.tyl);
-                bitmapList.add(bitmap);
-//                bitmapList.add(BitmapFactory.decodeResource(getResources(),R.mipmap.zjl));
-                ImageBrowseIntent.showBitmapBrowse(mContext,bitmapList,0);
             }
         });
     }
