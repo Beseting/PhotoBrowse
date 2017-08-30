@@ -7,7 +7,6 @@ Use
 ====
 
 #gradle:
----------
 
 Step 1. Add the JitPack repository to your build file
 
@@ -28,8 +27,6 @@ Step 2. Add the dependency
 	}
 	
 maven:
----------
-
 
 	<repositories>
 		<repository>
