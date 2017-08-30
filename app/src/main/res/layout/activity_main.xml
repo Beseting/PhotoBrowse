@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kevin.photobrowse.MainActivity">
+
+    <Button
+        android:id="@+id/btn_url_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单张网络图片浏览"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/btn_url_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多张网络图片浏览"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/btn_res_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单张资源图片浏览"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/btn_res_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多张资源图片浏览"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/btn_bitmap_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多张Bitmap浏览"
+        android:layout_margin="10dp" />
+
+</LinearLayout>
