@@ -3,13 +3,11 @@
 
 [![](https://jitpack.io/v/Beseting/PhotoBrowse.svg)](https://jitpack.io/#Beseting/PhotoBrowse)
 
-<b>Use:</b>
+<h1b>Use:</h1><hr />
 Step 1. Add the JitPack repository to your build file
 
-gradle
-maven
-sbt
-leiningen
+gradle:
+
 Add it in your root build.gradle at the end of repositories:
 
 	allprojects {
@@ -17,7 +15,8 @@ Add it in your root build.gradle at the end of repositories:
 			...
 			maven { url 'https://jitpack.io' }
 		}
-	}Copy
+	}
+	
 Step 2. Add the dependency
 
 	dependencies {
