@@ -9,7 +9,7 @@
 
 ## Download
 
-使用之前别忘了加上网络请求权限哦 要不然网络图片是加载不出来的<br />
+使用之前别忘了加上网络请求权限哦 要不然网络图片是加载不出来的<br /><br />
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
 ### #gradle:
