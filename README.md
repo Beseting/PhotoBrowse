@@ -3,6 +3,12 @@
 
 [![](https://jitpack.io/v/Beseting/PhotoBrowse.svg)](https://jitpack.io/#Beseting/PhotoBrowse)
 
+## Demo
+
+[baidu]:http://www.baidu.com/img/bdlogo.gif 
+
+ "百度Logo"  
+
 ## Use
 
 ### #gradle:
