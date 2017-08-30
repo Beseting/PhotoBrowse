@@ -5,7 +5,7 @@
 
 ## Demo
 
-![baidu](http://www.baidu.com/img/bdlogo.gif "百度Logo")  
+![baidu](https://github.com/Beseting/PhotoBrowse/blob/master/app/src/main/res/raw/Screenshot_2017-08-30-10-50-42-947.png "Screenshot 1")  
 
 ## Use
 
