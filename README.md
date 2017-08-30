@@ -11,9 +11,7 @@
 
 ### #gradle:
 
-#### Step 1. Add the JitPack repository to your build file
-
-Add it in your root build.gradle at the end of repositories:
+#### 1.在项目的build.gradle中
 
 
 	allprojects {
@@ -23,7 +21,7 @@ Add it in your root build.gradle at the end of repositories:
 		}
 	}
 	
-#### Step 2. Add the dependency
+#### 2.添加依赖
 
 	dependencies {
 	        compile 'com.github.Beseting:PhotoBrowse:v1.0'
@@ -38,7 +36,7 @@ Add it in your root build.gradle at the end of repositories:
 		</repository>
 	</repositories>
 	
-#### Step 2. Add the dependency
+#### 2.添加依赖
 
 	<dependency>
 	    <groupId>com.github.User</groupId>
