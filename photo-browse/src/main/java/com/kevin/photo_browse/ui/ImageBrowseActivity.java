@@ -32,6 +32,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
 
     //类型枚举标志
     public static int[] FLAG_ENUM = new int[]{0,1,2,3};
+    private int position = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
+                position = bundle.getInt(ImageBrowseIntent.PARAM_POSITION);
                 break;
             case 1://Url单
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
@@ -88,6 +90,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
+                position = bundle.getInt(ImageBrowseIntent.PARAM_POSITION);
                 break;
             case 3://本地资源单
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
@@ -101,6 +104,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
         viewPager.setAdapter(new MyPagerAdapter(views)); // 为viewpager设置adapter
         indicator.setViewPager(viewPager);
         container = (RelativeLayout)findViewById(R.id.container);
+        viewPager.setCurrentItem(position);
         // 3.将父类的touch事件分发至viewPgaer，否则只能滑动中间的一个view对象
         container.setOnTouchListener(new View.OnTouchListener() {
             @Override
