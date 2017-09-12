@@ -9,6 +9,10 @@
 
 ## Download
 
+使用之前别忘了加上网络请求权限哦 要不然网络图片是加载不出来的<br />
+
+<b>```<uses-permission android:name="android.permission.INTERNET" />```</b>
+
 ### #gradle:
 
 #### 1.在项目的build.gradle中
@@ -29,6 +33,8 @@
 	
 ### #maven:
 
+#### 1.添加maven仓库
+
 	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -39,10 +45,11 @@
 #### 2.添加依赖
 
 	<dependency>
-	    <groupId>com.github.User</groupId>
-	    <artifactId>Repo</artifactId>
-	    <version>Tag</version>
+	    <groupId>com.github.Beseting</groupId>
+	    <artifactId>PhotoBrowse</artifactId>
+	    <version>v1.0</version>
 	</dependency>
+
 	
 ## Use
 
