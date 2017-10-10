@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Integer> imageResList = new ArrayList<>();
                 imageResList.add(R.mipmap.wyz);
                 imageResList.add(R.mipmap.ywl);
-                ImageBrowseIntent.showResIdImageBrowse(mContext,imageResList,0);
+                ImageBrowseIntent.showResIdImageBrowse(mContext,imageResList,1);
             }
         });
     }

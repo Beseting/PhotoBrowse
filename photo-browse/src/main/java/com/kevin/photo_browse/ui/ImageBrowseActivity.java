@@ -13,7 +13,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 import com.kevin.photo_browse.ImageBrowseIntent;
 import com.kevin.photo_browse.R;
 import com.kevin.photo_browse.adapter.MyPagerAdapter;
-import com.kevin.photo_browse.utils.GlideUtils;
+import com.kevin.photo_browse.utils.GlideHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +67,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 for (int i = 0; i < imageList.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    GlideUtils.load(this,imageList.get(i),photo_view,true);
+                    GlideHelper.load(this,imageList.get(i),photo_view,true);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -76,7 +76,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
             case 1://Url单
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView url_photo_view = urlView.findViewById(R.id.photo_view);
-                GlideUtils.load(this,bundle.get(ImageBrowseIntent.PARAM_URL_SINGLE),url_photo_view,true);
+                GlideHelper.load(this,bundle.get(ImageBrowseIntent.PARAM_URL_SINGLE),url_photo_view,true);
                 views.add(urlView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -86,7 +86,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 for (int i = 0; i < imageResIds.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    GlideUtils.load(this,imageResIds.get(i),photo_view,true);
+                    GlideHelper.load(this,imageResIds.get(i),photo_view,true);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -95,7 +95,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
             case 3://本地资源单
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView res_id_photo_view = resIdView.findViewById(R.id.photo_view);
-                GlideUtils.load(this,bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE),res_id_photo_view,true);
+                GlideHelper.load(this,bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE),res_id_photo_view,true);
                 views.add(resIdView);
                 indicator.setVisibility(View.GONE);
                 break;
