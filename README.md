@@ -22,13 +22,15 @@
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
+			mavenCentral()
+        		maven { url 'https://maven.google.com' }
 		}
 	}
 	
 #### 2.添加依赖
 
 	dependencies {
-	        compile 'com.github.Beseting:PhotoBrowse:v1.1'
+	        compile 'com.github.Beseting:PhotoBrowse:v1.2'
 	}
 	
 ### #maven:
@@ -47,7 +49,7 @@
 	<dependency>
 	    <groupId>com.github.Beseting</groupId>
 	    <artifactId>PhotoBrowse</artifactId>
-	    <version>v1.1</version>
+	    <version>v1.2</version>
 	</dependency>
 
 	
