@@ -30,7 +30,7 @@
 #### 2.添加依赖
 
 	dependencies {
-	        compile 'com.github.Beseting:PhotoBrowse:v1.2'
+	        compile 'com.github.Beseting:PhotoBrowse:v1.3'
 	}
 	
 ### #maven:
@@ -49,7 +49,7 @@
 	<dependency>
 	    <groupId>com.github.Beseting</groupId>
 	    <artifactId>PhotoBrowse</artifactId>
-	    <version>v1.2</version>
+	    <version>v1.3</version>
 	</dependency>
 
 	
