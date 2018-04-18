@@ -1,5 +1,6 @@
 package com.kevin.photo_browse.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 
 import com.github.chrisbanes.photoview.PhotoView;
+import com.jaeger.library.StatusBarUtil;
 import com.kevin.photo_browse.ImageBrowseIntent;
 import com.kevin.photo_browse.R;
 import com.kevin.photo_browse.adapter.MyPagerAdapter;
@@ -36,10 +38,11 @@ public class ImageBrowseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_image_browse);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        container = (RelativeLayout)findViewById(R.id.container);
+        setContentView(R.layout.activity_image_browse);
+        StatusBarUtil.setColor(this, Color.BLACK, 0);
+        container = findViewById(R.id.container);
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +53,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
     }
 
     private void initData(){
-        indicator = (CircleIndicator)findViewById(R.id.indicator);
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        indicator = findViewById(R.id.indicator);
+        viewPager = findViewById(R.id.viewPager);
         // 1.设置幕后item的缓存数目
         viewPager.setOffscreenPageLimit(3);
         // 2.设置页与页之间的间距
@@ -103,7 +106,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
         }
         viewPager.setAdapter(new MyPagerAdapter(views)); // 为viewpager设置adapter
         indicator.setViewPager(viewPager);
-        container = (RelativeLayout)findViewById(R.id.container);
+        container = findViewById(R.id.container);
         viewPager.setCurrentItem(position);
         // 3.将父类的touch事件分发至viewPgaer，否则只能滑动中间的一个view对象
         container.setOnTouchListener(new View.OnTouchListener() {
