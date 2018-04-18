@@ -7,7 +7,7 @@
 
 ![PhotoBrowse](https://github.com/Beseting/PhotoBrowse/blob/master/app/src/main/res/raw/preview.png "Preview")  
 
-## 留下你们的小<font color=#f88>❤❤</font>吧↑↑↑
+## 留下你们的小❤❤吧↑↑↑
 
 ## Download
 
