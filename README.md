@@ -7,18 +7,20 @@
 
 ![PhotoBrowse](https://github.com/Beseting/PhotoBrowse/blob/master/app/src/main/res/raw/preview.png "Preview")  
 
+## 留下你们的小<span style="color:#f88">❤❤</span>吧↑↑↑
+
 ## Download
 
 使用之前别忘了加上网络请求权限哦 要不然网络图片是加载不出来的<br />
 
 <b>```<uses-permission android:name="android.permission.INTERNET" />```</b>
 
-### #gradle:
+### gradle:
 
 #### 1.在项目的build.gradle中
 
 
-	allprojects {
+    allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
@@ -26,14 +28,14 @@
         		maven { url 'https://maven.google.com' }
 		}
 	}
-	
+
 #### 2.添加依赖
 
 	dependencies {
 	        compile 'com.github.Beseting:PhotoBrowse:v1.3'
 	}
-	
-### #maven:
+
+### maven:
 
 #### 1.添加maven仓库
 
@@ -43,7 +45,7 @@
 		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-	
+
 #### 2.添加依赖
 
 	<dependency>
@@ -52,25 +54,25 @@
 	    <version>v1.3</version>
 	</dependency>
 
-	
+
 ## Use
 
-#### #单张网络图片
+#### 单张网络图片
 
 	ImageBrowseIntent.showUrlImageBrowse(mContext,"...");
-	
-#### #多张网络图片
+
+#### 多张网络图片
 
 	ArrayList<String> imageList = new ArrayList<>();
 	imageList.add("...");
 	...
 	ImageBrowseIntent.showUrlImageBrowse(mContext,imageList,position);
-	
-#### #单张资源图片
+
+#### 单张资源图片
 
 	ImageBrowseIntent.showResIdImageBrowse(mContext,R.mipmap.xxx);
-	
-#### #多张资源图片
+
+#### 多张资源图片
 
 	ArrayList<Integer> imageResList = new ArrayList<>();
 	imageResList.add(R.mipmap.xxx);
