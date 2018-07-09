@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.kevin.photobrowse"
         minSdkVersion 14
@@ -21,7 +20,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:appcompat-v7:27.+'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':photo-browse')
