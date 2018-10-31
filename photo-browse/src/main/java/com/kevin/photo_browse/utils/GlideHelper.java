@@ -21,7 +21,7 @@ public final class GlideHelper {
                 .into(imageView);
     }
     public static void load(Activity activity,Object url,ImageView imageView){
-        load(activity,url,imageView,true);
+        load(activity,url,imageView,false);
     }
     public static void load(final Activity activity, Object url, ImageView imageView, boolean isClickFinish){
         GlideApp.with(activity)
