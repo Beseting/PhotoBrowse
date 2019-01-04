@@ -32,7 +32,7 @@
 #### 2.添加依赖
 
 	dependencies {
-	        compile 'com.github.Beseting:PhotoBrowse:v1.3'
+	        compile 'com.github.Beseting:PhotoBrowse:v{ LAST-VERSION }'
 	}
 
 ### maven:
