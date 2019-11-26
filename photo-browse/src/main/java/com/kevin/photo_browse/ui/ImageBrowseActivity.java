@@ -2,8 +2,10 @@ package com.kevin.photo_browse.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +17,7 @@ import com.jaeger.library.StatusBarUtil;
 import com.kevin.photo_browse.ImageBrowseIntent;
 import com.kevin.photo_browse.R;
 import com.kevin.photo_browse.adapter.MyPagerAdapter;
-import com.kevin.photo_browse.utils.GlideHelper;
+import com.kevin.photo_browse.utils.PicassoHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +35,17 @@ public class ImageBrowseActivity extends AppCompatActivity {
     private CircleIndicator indicator;
 
     //类型枚举标志
-    public static int[] FLAG_ENUM = new int[]{0,1,2,3};
+    public static int[] FLAG_ENUM = new int[]{0, 1, 2, 3};
     private int position = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
         setContentView(R.layout.activity_image_browse);
         StatusBarUtil.setColor(this, Color.BLACK, 0);
         container = findViewById(R.id.container);
@@ -52,7 +58,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
         initData();
     }
 
-    private void initData(){
+    private void initData() {
         indicator = findViewById(R.id.indicator);
         viewPager = findViewById(R.id.viewPager);
         // 1.设置幕后item的缓存数目
@@ -63,14 +69,14 @@ public class ImageBrowseActivity extends AppCompatActivity {
         views = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
-        switch (bundle.getInt(ImageBrowseIntent.PARAM_FLAG_ENUM)){
+        switch (bundle.getInt(ImageBrowseIntent.PARAM_FLAG_ENUM)) {
             case 0://Url组
                 ArrayList<String> imageList = (ArrayList<String>) bundle.get(ImageBrowseIntent.PARAM_URL_GROUP);
                 //动态添加View
                 for (int i = 0; i < imageList.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    GlideHelper.load(this,imageList.get(i),photo_view,true);
+                    PicassoHelper.load(this, imageList.get(i), photo_view, true);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -79,7 +85,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
             case 1://Url单
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView url_photo_view = urlView.findViewById(R.id.photo_view);
-                GlideHelper.load(this,bundle.get(ImageBrowseIntent.PARAM_URL_SINGLE),url_photo_view,true);
+                PicassoHelper.load(this, bundle.get(ImageBrowseIntent.PARAM_URL_SINGLE), url_photo_view, true);
                 views.add(urlView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -89,7 +95,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 for (int i = 0; i < imageResIds.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    GlideHelper.load(this,imageResIds.get(i),photo_view,true);
+                    PicassoHelper.load(this, imageResIds.get(i), photo_view, true);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -98,11 +104,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
             case 3://本地资源单
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView res_id_photo_view = resIdView.findViewById(R.id.photo_view);
-                GlideHelper.load(this,bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE),res_id_photo_view,true);
+                PicassoHelper.load(this, bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE), res_id_photo_view, true);
                 views.add(resIdView);
                 indicator.setVisibility(View.GONE);
                 break;
-            default:break;
+            default:
+                break;
         }
         viewPager.setAdapter(new MyPagerAdapter(views)); // 为viewpager设置adapter
         indicator.setViewPager(viewPager);
