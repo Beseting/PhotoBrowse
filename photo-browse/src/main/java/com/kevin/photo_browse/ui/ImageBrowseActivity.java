@@ -44,7 +44,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         if (getSupportActionBar() != null)
             getSupportActionBar().hide();
-        if (getSupportActionBar() != null)
+        if (getActionBar() != null)
             getSupportActionBar().hide();
         setContentView(R.layout.activity_image_browse);
         StatusBarUtil.setColor(this, Color.BLACK, 0);
