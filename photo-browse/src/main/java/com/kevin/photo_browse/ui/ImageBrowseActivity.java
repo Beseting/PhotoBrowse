@@ -3,15 +3,14 @@ package com.kevin.photo_browse.ui;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.jaeger.library.StatusBarUtil;
@@ -19,7 +18,6 @@ import com.kevin.photo_browse.DataServer;
 import com.kevin.photo_browse.ImageBrowseIntent;
 import com.kevin.photo_browse.R;
 import com.kevin.photo_browse.adapter.MyPagerAdapter;
-import com.kevin.photo_browse.utils.PicassoHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -80,6 +78,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageUrlList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -89,6 +93,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView url_photo_view = urlView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageUrl()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(url_photo_view);
+                urlView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                });
                 views.add(urlView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -99,6 +109,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageResIdList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -108,6 +124,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView res_id_photo_view = resIdView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageResId()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(res_id_photo_view);
+                resIdView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                });
                 views.add(resIdView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -118,6 +140,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageUriList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    });
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -127,6 +155,12 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View uriIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView uri_photo_view = uriIdView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageUri()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(uri_photo_view);
+                uriIdView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                });
                 views.add(uri_photo_view);
                 indicator.setVisibility(View.GONE);
                 break;
