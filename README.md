@@ -1,5 +1,5 @@
 # PhotoBrowse
-图片浏览库，单张/多张网络图片，单张/多张资源图片，基于PhotoView，Picasso开源框架整合，支持缩放，单点退出，后续升级更多功能！
+图片浏览库，单张/多张网络图片，单张/多张资源图片，单张/多张Uri图片，基于PhotoView，Picasso开源框架整合，支持缩放，单点退出，后续升级更多功能！
 
 [![](https://jitpack.io/v/Beseting/PhotoBrowse.svg)](https://jitpack.io/#Beseting/PhotoBrowse)
 
