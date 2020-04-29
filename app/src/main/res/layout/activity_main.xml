@@ -34,6 +34,20 @@
         android:text="多张资源图片浏览"
         android:layout_margin="10dp" />
 
+    <Button
+        android:id="@+id/btn_uri_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单张Uri图片浏览"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/btn_uri_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多张Uri图片浏览"
+        android:layout_margin="10dp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -2,11 +2,12 @@ package com.kevin.photo_browse;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.kevin.photo_browse.ui.ImageBrowseActivity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kevin on 2017/8/22.
@@ -15,24 +16,17 @@ import java.util.ArrayList;
 public class ImageBrowseIntent {
     public static String PARAM_FLAG_ENUM = "param_flag_enum";
 
-    public static String PARAM_POSITION = "param_position";
-
-    public static String PARAM_URL_GROUP = "image_url_group";
-    public static String PARAM_URL_SINGLE = "image_url_single";
-    public static String PARAM_RES_ID_GROUP = "image_res_id_group";
-    public static String PARAM_RES_ID_SINGLE = "image_res_id_single";
-
     /**
      * 浏览多张网络加载的图片
     * @param context
     * @param imageList
     * */
-    public static void showUrlImageBrowse(Context context, ArrayList<String> imageList, int position){
+    public static void showUrlImageBrowse(Context context, List<String> imageList, int position){
         Intent intent = new Intent(context,ImageBrowseActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[0]);
-        bundle.putInt(PARAM_POSITION,position);
-        bundle.putStringArrayList(PARAM_URL_GROUP,imageList);
+        DataServer.getInstance().setImageUrlList(imageList);
+        DataServer.getInstance().setPosition(position);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }
@@ -46,7 +40,7 @@ public class ImageBrowseIntent {
         Intent intent = new Intent(context,ImageBrowseActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[1]);
-        bundle.putString(PARAM_URL_SINGLE,imageUrl);
+        DataServer.getInstance().setImageUrl(imageUrl);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }
@@ -54,14 +48,14 @@ public class ImageBrowseIntent {
     /**
      *  浏览多张资源文件的图片
      * @param context
-     * @param imageResIds
+     * @param imageResIdList
      * **/
-    public static void showResIdImageBrowse(Context context, ArrayList<Integer> imageResIds, int position){
+    public static void showResIdImageBrowse(Context context, List<Integer> imageResIdList, int position){
         Intent intent = new Intent(context,ImageBrowseActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[2]);
-        bundle.putInt(PARAM_POSITION,position);
-        bundle.putIntegerArrayList(PARAM_RES_ID_GROUP,imageResIds);
+        DataServer.getInstance().setPosition(position);
+        DataServer.getInstance().setImageResIdList(imageResIdList);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }
@@ -75,7 +69,36 @@ public class ImageBrowseIntent {
         Intent intent = new Intent(context,ImageBrowseActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[3]);
-        bundle.putInt(PARAM_RES_ID_SINGLE,imageResId);
+        DataServer.getInstance().setImageResId(imageResId);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    /**
+     *  浏览多张Uri文件的图片
+     * @param context
+     * @param imageUriList
+     * **/
+    public static void showUriImageBrowse(Context context, List<Uri> imageUriList, int position){
+        Intent intent = new Intent(context,ImageBrowseActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[4]);
+        DataServer.getInstance().setPosition(position);
+        DataServer.getInstance().setImageUriList(imageUriList);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    /**
+     *  浏览单张Uri加载的图片
+     * @param context
+     * @param imageUri
+     * **/
+    public static void showUriImageBrowse(Context context, Uri imageUri){
+        Intent intent = new Intent(context,ImageBrowseActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt(PARAM_FLAG_ENUM,ImageBrowseActivity.FLAG_ENUM[5]);
+        DataServer.getInstance().setImageUri(imageUri);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }

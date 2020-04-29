@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.kevin.photo_browse.ImageBrowseIntent;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
-    private Button btn_url_single, btn_url_group, btn_res_single, btn_res_group;
+    private Button btn_url_single, btn_url_group, btn_res_single, btn_res_group,btn_uri_single,btn_uri_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
         btn_url_group = findViewById(R.id.btn_url_group);
         btn_res_single = findViewById(R.id.btn_res_single);
         btn_res_group = findViewById(R.id.btn_res_group);
+        btn_uri_single = findViewById(R.id.btn_uri_single);
+        btn_uri_group = findViewById(R.id.btn_uri_group);
 
         //浏览单张网络图片
         btn_url_single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageBrowseIntent.showUrlImageBrowse(mContext, "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574771473779&di=543ba9dd46968a7fe5677276bcc6c9a1&imgtype=0&src=http%3A%2F%2Fwx4.sinaimg.cn%2Fbmiddle%2F006XP2cxgy1g83uli0h4ij30u00mi4cu.jpg");
+                ImageBrowseIntent.showUrlImageBrowse(mContext, "https://fun.youth.cn/gnzx/201812/W020181218535859198594.jpg");
             }
         });
 
@@ -66,6 +69,22 @@ public class MainActivity extends AppCompatActivity {
                 imageResList.add(R.mipmap.wyz);
                 imageResList.add(R.mipmap.ywl);
                 ImageBrowseIntent.showResIdImageBrowse(mContext, imageResList, 1);
+            }
+        });
+
+        //浏览单张uri图片
+        btn_uri_single.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"ImageBrowseIntent.showUriImageBrowse(mContext,uri)",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //浏览多张uri图片
+        btn_uri_group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"ImageBrowseIntent.showUriImageBrowse(mContext,imageUriList,position)",Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.kevin.photo_browse.ui;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.viewpager.widget.ViewPager;
@@ -14,10 +15,12 @@ import android.widget.RelativeLayout;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.jaeger.library.StatusBarUtil;
+import com.kevin.photo_browse.DataServer;
 import com.kevin.photo_browse.ImageBrowseIntent;
 import com.kevin.photo_browse.R;
 import com.kevin.photo_browse.adapter.MyPagerAdapter;
 import com.kevin.photo_browse.utils.PicassoHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
     private CircleIndicator indicator;
 
     //类型枚举标志
-    public static int[] FLAG_ENUM = new int[]{0, 1, 2, 3};
+    public static int[] FLAG_ENUM = new int[]{0, 1, 2, 3, 4, 5};
     private int position = 0;
 
     @Override
@@ -71,41 +74,60 @@ public class ImageBrowseActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         switch (bundle.getInt(ImageBrowseIntent.PARAM_FLAG_ENUM)) {
             case 0://Url组
-                ArrayList<String> imageList = (ArrayList<String>) bundle.get(ImageBrowseIntent.PARAM_URL_GROUP);
                 //动态添加View
-                for (int i = 0; i < imageList.size(); i++) {
+                List<String> imageUrlList = DataServer.getInstance().getImageUrlList();
+                for (int i = 0; i < imageUrlList.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    PicassoHelper.load(this, imageList.get(i), photo_view, true);
+                    Picasso.get().load(imageUrlList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
-                position = bundle.getInt(ImageBrowseIntent.PARAM_POSITION);
+                position = DataServer.getInstance().getPosition();
                 break;
             case 1://Url单
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView url_photo_view = urlView.findViewById(R.id.photo_view);
-                PicassoHelper.load(this, bundle.get(ImageBrowseIntent.PARAM_URL_SINGLE), url_photo_view, true);
+                Picasso.get().load(DataServer.getInstance().getImageUrl()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(url_photo_view);
                 views.add(urlView);
                 indicator.setVisibility(View.GONE);
                 break;
             case 2://本地资源组
-                ArrayList<Integer> imageResIds = bundle.getIntegerArrayList(ImageBrowseIntent.PARAM_RES_ID_GROUP);
+                List<Integer> imageResIdList = DataServer.getInstance().getImageResIdList();
                 //动态添加View
-                for (int i = 0; i < imageResIds.size(); i++) {
+                for (int i = 0; i < imageResIdList.size(); i++) {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
-                    PicassoHelper.load(this, imageResIds.get(i), photo_view, true);
+                    Picasso.get().load(imageResIdList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
-                position = bundle.getInt(ImageBrowseIntent.PARAM_POSITION);
+                position = DataServer.getInstance().getPosition();
                 break;
             case 3://本地资源单
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView res_id_photo_view = resIdView.findViewById(R.id.photo_view);
-                PicassoHelper.load(this, bundle.get(ImageBrowseIntent.PARAM_RES_ID_SINGLE), res_id_photo_view, true);
+                Picasso.get().load(DataServer.getInstance().getImageResId()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(res_id_photo_view);
                 views.add(resIdView);
+                indicator.setVisibility(View.GONE);
+                break;
+            case 4://uri组
+                List<Uri> imageUriList = DataServer.getInstance().getImageUriList();
+                //动态添加View
+                for (int i = 0; i < imageUriList.size(); i++) {
+                    View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
+                    PhotoView photo_view = view.findViewById(R.id.photo_view);
+                    Picasso.get().load(imageUriList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
+                    views.add(view);
+                }
+                indicator.setVisibility(View.VISIBLE);
+                position = DataServer.getInstance().getPosition();
+                break;
+            case 5://uri单
+                View uriIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
+                PhotoView uri_photo_view = uriIdView.findViewById(R.id.photo_view);
+                Picasso.get().load(DataServer.getInstance().getImageUri()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(uri_photo_view);
+                views.add(uri_photo_view);
                 indicator.setVisibility(View.GONE);
                 break;
             default:
