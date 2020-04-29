@@ -78,7 +78,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageUrlList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
-                    view.setOnClickListener(new View.OnClickListener() {
+                    photo_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             finish();
@@ -93,7 +93,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View urlView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView url_photo_view = urlView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageUrl()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(url_photo_view);
-                urlView.setOnClickListener(new View.OnClickListener() {
+                url_photo_view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         finish();
@@ -109,7 +109,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageResIdList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
-                    view.setOnClickListener(new View.OnClickListener() {
+                    photo_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             finish();
@@ -124,7 +124,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View resIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView res_id_photo_view = resIdView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageResId()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(res_id_photo_view);
-                resIdView.setOnClickListener(new View.OnClickListener() {
+                res_id_photo_view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         finish();
@@ -140,7 +140,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                     View view = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                     PhotoView photo_view = view.findViewById(R.id.photo_view);
                     Picasso.get().load(imageUriList.get(i)).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(photo_view);
-                    view.setOnClickListener(new View.OnClickListener() {
+                    photo_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             finish();
@@ -155,7 +155,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                 View uriIdView = LayoutInflater.from(this).inflate(R.layout.adapter_image, null);
                 PhotoView uri_photo_view = uriIdView.findViewById(R.id.photo_view);
                 Picasso.get().load(DataServer.getInstance().getImageUri()).placeholder(R.drawable.img_placeholder).error(R.drawable.img_error).into(uri_photo_view);
-                uriIdView.setOnClickListener(new View.OnClickListener() {
+                uri_photo_view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         finish();
