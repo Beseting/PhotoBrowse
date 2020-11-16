@@ -1,5 +1,6 @@
 package com.kevin.photobrowse;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 titleList.add("测试标3");
                 ImageBrowseIntent.showUrlImageBrowse(mContext, imageList, 0, titleList, new DataServer.ClickCallback() {
                     @Override
-                    public void onLongClick(String imageUrl) {
-                        super.onLongClick(imageUrl);
+                    public void onLongClick(Activity activity,String imageUrl) {
+                        super.onLongClick(activity,imageUrl);
                         Log.d("-->", imageUrl);
                     }
                 });

@@ -107,7 +107,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
                         photo_view.setOnLongClickListener(new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View view) {
-                                clickCallback.onLongClick(imageUrlList.get(finalI));
+                                clickCallback.onLongClick(ImageBrowseActivity.this,imageUrlList.get(finalI));
                                 return true;
                             }
                         });

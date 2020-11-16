@@ -1,5 +1,6 @@
 package com.kevin.photo_browse;
 
+import android.app.Activity;
 import android.net.Uri;
 
 import com.kevin.IClickCallback;
@@ -25,6 +26,7 @@ public class DataServer {
 
     private int position;
     private ClickCallback clickCallback;
+    private Activity activity;
 
     public static class ClickCallback implements IClickCallback {
         @Override
@@ -43,7 +45,7 @@ public class DataServer {
         }
 
         @Override
-        public void onLongClick(String imageUrl) {
+        public void onLongClick(Activity activity,String imageUrl) {
 
         }
 
@@ -136,6 +138,14 @@ public class DataServer {
 
     public void setClickCallback(ClickCallback clickCallback) {
         this.clickCallback = clickCallback;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public void clear() {
