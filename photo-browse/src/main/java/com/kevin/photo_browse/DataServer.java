@@ -2,6 +2,8 @@ package com.kevin.photo_browse;
 
 import android.net.Uri;
 
+import com.kevin.IClickCallback;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,9 @@ public class DataServer {
     private List<String> imageUrlList;
     private String imageUrl;
 
+    private List<String> titleList;
+    private String title;
+
     private List<Integer> imageResIdList;
     private Integer imageResId;
 
@@ -19,6 +24,39 @@ public class DataServer {
     private Uri imageUri;
 
     private int position;
+    private ClickCallback clickCallback;
+
+    public static class ClickCallback implements IClickCallback {
+        @Override
+        public void onClick(String imageUrl) {
+
+        }
+
+        @Override
+        public void onClick(int resId) {
+
+        }
+
+        @Override
+        public void onClick(Uri imageUri) {
+
+        }
+
+        @Override
+        public void onLongClick(String imageUrl) {
+
+        }
+
+        @Override
+        public void onLongClick(int resId) {
+
+        }
+
+        @Override
+        public void onLongClick(Uri imageUri) {
+
+        }
+    }
 
     public List<String> getImageUrlList() {
         return imageUrlList;
@@ -34,6 +72,22 @@ public class DataServer {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public List<String> getTitleList() {
+        return titleList;
+    }
+
+    public void setTitleList(List<String> titleList) {
+        this.titleList = titleList;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<Integer> getImageResIdList() {
@@ -76,6 +130,27 @@ public class DataServer {
         this.position = position;
     }
 
+    public ClickCallback getClickCallback() {
+        return clickCallback;
+    }
+
+    public void setClickCallback(ClickCallback clickCallback) {
+        this.clickCallback = clickCallback;
+    }
+
+    public void clear() {
+        this.imageUrlList = null;
+        this.imageUrl = null;
+        this.titleList = null;
+        this.title = null;
+        this.imageResIdList = null;
+        this.imageResId = null;
+        this.imageUriList = null;
+        this.imageUri = null;
+        this.position = 0;
+        this.clickCallback = null;
+    }
+
     private static class SingletonHolder {
         private static final DataServer INSTANCE = new DataServer();
     }
@@ -83,7 +158,7 @@ public class DataServer {
     private DataServer() {
     }
 
-    public static final DataServer getInstance() {
+    public static DataServer getInstance() {
         return SingletonHolder.INSTANCE;
     }
 }
