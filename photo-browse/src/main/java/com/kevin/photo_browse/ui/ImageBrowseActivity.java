@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -79,6 +80,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                if (DataServer.getInstance().getTitle() != null)
+                    ((TextView) urlView.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitle());
                 views.add(urlView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -107,6 +110,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                             return true;
                         }
                     });
+                    if (DataServer.getInstance().getTitleList() != null && DataServer.getInstance().getTitleList().size() > finalPosition)
+                        ((TextView) view.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitleList().get(finalPosition));
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -132,6 +137,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                if (DataServer.getInstance().getTitle() != null)
+                    ((TextView) resIdView.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitle());
                 views.add(resIdView);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -160,6 +167,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                             return true;
                         }
                     });
+                    if (DataServer.getInstance().getTitleList() != null && DataServer.getInstance().getTitleList().size() > finalPosition)
+                        ((TextView) view.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitleList().get(finalPosition));
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);
@@ -185,6 +194,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                if (DataServer.getInstance().getTitle() != null)
+                    ((TextView) uriIdView.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitle());
                 views.add(uri_photo_view);
                 indicator.setVisibility(View.GONE);
                 break;
@@ -213,6 +224,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
                             return true;
                         }
                     });
+                    if (DataServer.getInstance().getTitleList() != null && DataServer.getInstance().getTitleList().size() > finalPosition)
+                        ((TextView) view.findViewById(R.id.titleTv)).setText(DataServer.getInstance().getTitleList().get(finalPosition));
                     views.add(view);
                 }
                 indicator.setVisibility(View.VISIBLE);

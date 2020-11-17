@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 PhotoBrowse.with(MainActivity.this)
                         .showType(ShowType.SINGLE_URL)
                         .url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213917104,3274061808&fm=26&gp=0.jpg")
+                        .title("港星女神周慧敏,被颜值盖过的十项全能才女,亚洲第一偶像天后!")
                         .show();
             }
         });
@@ -51,9 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605280562&di=f0afe991cc0483d3775056a7fda7e16d&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn08%2F777%2Fw993h584%2F20181031%2Faa89-hnfikvc5826403.png");
                 imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605241688&di=47e02706355fb725aad783806f14e464&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F6212494362%2F0.jpg");
                 imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605410234&di=7a5ed0fff39f13f2167ea1507f1bb1c5&imgtype=0&src=http%3A%2F%2Fimg6.aili.com%2F201610%2F13%2F1476325737_52847600.jpg");
+                List<String> titleList = new ArrayList<>();
+                titleList.add("诺贝尔级“肽”抗衰领域全新应用，朱茵亲临樊文花新品发布会引领逆龄风潮");
+                titleList.add("有一种爱情，叫黄贯中与朱茵");
                 PhotoBrowse.with(MainActivity.this)
                         .showType(ShowType.MULTIPLE_URL)
                         .url(imageList)
+                        .title(titleList)
                         .position(2)//初始预览位置 默认0
                         .callback(new ClickCallback() {
                             @Override

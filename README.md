@@ -1,5 +1,5 @@
 # PhotoBrowse
-图片浏览库，单张/多张网络图片，单张/多张资源图片，单张/多张Uri图片，基于PhotoView，Picasso开源框架整合，支持缩放，单点退出，后续升级更多功能！
+图片浏览库，单张/多张网络图片，单张/多张资源图片，单张/多张Uri图片，基于PhotoView，Glide开源框架整合，支持缩放，单点退出，事件回调，标题内容配置等，后续升级更多功能！
 
 [![](https://jitpack.io/v/Beseting/PhotoBrowse.svg)](https://jitpack.io/#Beseting/PhotoBrowse)
 
@@ -9,20 +9,15 @@
 
 ## 留下你们的小❤❤吧↑↑↑
 
-## Download
-
-使用之前别忘了加上网络请求权限哦 要不然网络图片是加载不出来的<br />
-
-<b>```<uses-permission android:name="android.permission.INTERNET" />```</b>
+<br />
 
 ### gradle:
 
 #### 1.在项目的build.gradle中
 
-
     allprojects {
         repositories {
-    		...
+        	...
 			maven { url 'https://jitpack.io' }
 		}
 	}
@@ -68,17 +63,23 @@
 
 	PhotoBrowse.with(MainActivity.this)
                         .showType(ShowType.SINGLE_URL)
+                        .title("xxx")//选传，不配置则不显示
                         .url("xxx")
                         .show();
 
-#### 多张网络图片
+
+#### 多张网络图片（可配置事件回调）
 
 	List<String> imageList = new ArrayList<>();
 	imageList.add("...");
 	...
+	List<String> titleList = new ArrayList();
+	titleList.add("...");
+	...
 	PhotoBrowse.with(MainActivity.this)
                         .showType(ShowType.MULTIPLE_URL)
                         .url(imageList)
+                        .title(titleList)//选传，不配置则不显示
                         .position(2)//初始预览位置 默认0
                         .callback(new ClickCallback() {
                             @Override
