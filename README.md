@@ -21,11 +21,9 @@
 
 
     allprojects {
-		repositories {
-			...
+        repositories {
+    		...
 			maven { url 'https://jitpack.io' }
-			mavenCentral()
-        		maven { url 'https://maven.google.com' }
 		}
 	}
 
@@ -49,43 +47,84 @@
 #### 2.添加依赖
 
 	<dependency>
-	    <groupId>com.github.Beseting</groupId>
+        <groupId>com.github.Beseting</groupId>
 	    <artifactId>PhotoBrowse</artifactId>
-	    <version>v1.3</version>
+	    <version>{ LAST-VERSION }</version>
 	</dependency>
 
 
 ## Use
 
+#### 预览类型ShowType（必传）
+
+    SINGLE_URL,//单个Url网络图片预览模式
+    MULTIPLE_URL,//多个Url网络图片预览模式
+    SINGLE_RES,//单个Res资源图片预览模式
+    MULTIPLE_RES,//多个Res网络图片预览模式
+    SINGLE_URI,//单个Uri预览模式
+    MULTIPLE_URI//多个Uri网络图片预览模式
+
 #### 单张网络图片
 
-	ImageBrowseIntent.showUrlImageBrowse(mContext,"...");
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.SINGLE_URL)
+                        .url("xxx")
+                        .show();
 
 #### 多张网络图片
 
 	List<String> imageList = new ArrayList<>();
 	imageList.add("...");
 	...
-	ImageBrowseIntent.showUrlImageBrowse(mContext,imageList,position);
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.MULTIPLE_URL)
+                        .url(imageList)
+                        .position(2)//初始预览位置 默认0
+                        .callback(new ClickCallback() {
+                            @Override
+                            public void onClick(Activity activity, String url, int position) {
+                                super.onClick(activity, url, position);
+                                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onLongClick(Activity activity, String url, int position) {
+                                super.onLongClick(activity, url, position);
+                                Toast.makeText(MainActivity.this, "长按", Toast.LENGTH_LONG).show();
+                            }
+                        })//点击事件回调，默认点击退出
+                        .show();
 
 #### 单张资源图片
 
-	ImageBrowseIntent.showResIdImageBrowse(mContext,R.mipmap.xxx);
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.SINGLE_RES)
+                        .res(R.mipmap.xxx)
+                        .show();
 
 #### 多张资源图片
 
 	List<Integer> imageResList = new ArrayList<>();
 	imageResList.add(R.mipmap.xxx);
 	...
-	ImageBrowseIntent.showResIdImageBrowse(mContext,imageResList,position);
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.MULTIPLE_RES)
+                        .res(imageResList)
+                        .show();
 
 #### 单张Uri图片
 
-	ImageBrowseIntent.showUriImageBrowse(mContext,imageUri,position);
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.SINGLE_URI)
+                        .uri(uri)
+                        .show();
 
 #### 多张资源图片
 
 	List<Uri> imageUriList = new ArrayList<>();
 	imageUriList.add(mUri);
 	...
-	ImageBrowseIntent.showUriImageBrowse(mContext,imageUriList,position);
+	PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.MULTIPLE_URI)
+                        .uri(imageUriList)
+                        .show();

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 PhotoBrowse.with(MainActivity.this)
                         .showType(ShowType.MULTIPLE_URL)
                         .url(imageList)
-                        .position(2)
+                        .position(2)//初始预览位置 默认0
                         .callback(new ClickCallback() {
                             @Override
                             public void onClick(Activity activity, String url, int position) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                                 super.onLongClick(activity, url, position);
                                 Toast.makeText(MainActivity.this, "长按", Toast.LENGTH_LONG).show();
                             }
-                        })
+                        })//点击事件回调，默认点击退出
                         .show();
             }
         });
