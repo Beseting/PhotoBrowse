@@ -122,7 +122,6 @@ public class PhotoBrowse {
                 return;
         }
         activity.startActivity(intent);
-        activity.overridePendingTransition(R.anim.anim_activity_in, 0);
     }
 
     /**

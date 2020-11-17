@@ -280,10 +280,4 @@ public class ImageBrowseActivity extends AppCompatActivity {
         super.onStop();
         DataServer.getInstance().clear();
     }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(0, R.anim.anim_activity_out);
-    }
 }
