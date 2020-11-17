@@ -2,10 +2,14 @@
 
     package="com.kevin.photo_browse">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
-        android:supportsRtl="true">
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
 
-        <activity android:name=".ui.ImageBrowseActivity"
+        <activity
+            android:name=".ui.ImageBrowseActivity"
             android:screenOrientation="portrait"/>
     </application>
 

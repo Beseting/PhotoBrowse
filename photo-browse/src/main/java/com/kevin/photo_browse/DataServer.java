@@ -2,6 +2,8 @@ package com.kevin.photo_browse;
 
 import android.net.Uri;
 
+import com.kevin.photo_browse.callabck.ClickCallback;
+
 import java.util.List;
 
 /**
@@ -18,7 +20,14 @@ public class DataServer {
     private List<Uri> imageUriList;
     private Uri imageUri;
 
-    private int position;
+    private Integer position;
+
+    private String title;
+    private List<String> titleList;
+
+    private ShowType showType;
+
+    private ClickCallback clickCallback;
 
     public List<String> getImageUrlList() {
         return imageUrlList;
@@ -68,12 +77,58 @@ public class DataServer {
         this.imageUri = imageUri;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Integer position) {
         this.position = position;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<String> getTitleList() {
+        return titleList;
+    }
+
+    public void setTitleList(List<String> titleList) {
+        this.titleList = titleList;
+    }
+
+    public ShowType getShowType() {
+        return showType;
+    }
+
+    public void setShowType(ShowType showType) {
+        this.showType = showType;
+    }
+
+    public ClickCallback getClickCallback() {
+        return clickCallback;
+    }
+
+    public void setClickCallback(ClickCallback clickCallback) {
+        this.clickCallback = clickCallback;
+    }
+
+    public void clear() {
+        this.imageUrlList = null;
+        this.imageUrl = null;
+        this.imageResIdList = null;
+        this.imageResId = null;
+        this.imageUriList = null;
+        this.imageUri = null;
+        this.position = null;
+        this.title = null;
+        this.titleList = null;
+        this.showType = null;
+        this.clickCallback = null;
     }
 
     private static class SingletonHolder {

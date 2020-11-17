@@ -1,43 +1,45 @@
 package com.kevin.photobrowse;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.kevin.photo_browse.ImageBrowseIntent;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.kevin.photo_browse.PhotoBrowse;
+import com.kevin.photo_browse.ShowType;
+import com.kevin.photo_browse.callabck.ClickCallback;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Context mContext;
-    private Button btn_url_single, btn_url_group, btn_res_single, btn_res_group,btn_uri_single,btn_uri_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.mContext = this;
         init();
     }
 
     private void init() {
-        btn_url_single = findViewById(R.id.btn_url_single);
-        btn_url_group = findViewById(R.id.btn_url_group);
-        btn_res_single = findViewById(R.id.btn_res_single);
-        btn_res_group = findViewById(R.id.btn_res_group);
-        btn_uri_single = findViewById(R.id.btn_uri_single);
-        btn_uri_group = findViewById(R.id.btn_uri_group);
+        Button btn_url_single = findViewById(R.id.btn_url_single);
+        Button btn_url_group = findViewById(R.id.btn_url_group);
+        Button btn_res_single = findViewById(R.id.btn_res_single);
+        Button btn_res_group = findViewById(R.id.btn_res_group);
+        Button btn_uri_single = findViewById(R.id.btn_uri_single);
+        Button btn_uri_group = findViewById(R.id.btn_uri_group);
 
         //浏览单张网络图片
         btn_url_single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageBrowseIntent.showUrlImageBrowse(mContext, "https://fun.youth.cn/gnzx/201812/W020181218535859198594.jpg");
+                PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.SINGLE_URL)
+                        .url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213917104,3274061808&fm=26&gp=0.jpg")
+                        .show();
             }
         });
 
@@ -45,11 +47,28 @@ public class MainActivity extends AppCompatActivity {
         btn_url_group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> imageList = new ArrayList<>();
-                imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574771505154&di=b61a231a622e4b40f508478d6d68ad5b&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2Fsports%2Fpics%2Fhv1%2F188%2F30%2F1074%2F69844688.jpg");
-                imageList.add("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2315464905,3405356132&fm=26&gp=0.jpg");
-                imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574771604448&di=dcb58c9408a08113a5575943a695a164&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201606%2F20%2F20160620134552_uEXCj.thumb.700_0.jpeg");
-                ImageBrowseIntent.showUrlImageBrowse(mContext, imageList, 0);
+                List<String> imageList = new ArrayList<>();
+                imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605280562&di=f0afe991cc0483d3775056a7fda7e16d&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn08%2F777%2Fw993h584%2F20181031%2Faa89-hnfikvc5826403.png");
+                imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605241688&di=47e02706355fb725aad783806f14e464&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F6212494362%2F0.jpg");
+                imageList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605605410234&di=7a5ed0fff39f13f2167ea1507f1bb1c5&imgtype=0&src=http%3A%2F%2Fimg6.aili.com%2F201610%2F13%2F1476325737_52847600.jpg");
+                PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.MULTIPLE_URL)
+                        .url(imageList)
+                        .position(2)
+                        .callback(new ClickCallback() {
+                            @Override
+                            public void onClick(Activity activity, String url, int position) {
+                                super.onClick(activity, url, position);
+                                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onLongClick(Activity activity, String url, int position) {
+                                super.onLongClick(activity, url, position);
+                                Toast.makeText(MainActivity.this, "长按", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -57,7 +76,10 @@ public class MainActivity extends AppCompatActivity {
         btn_res_single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageBrowseIntent.showResIdImageBrowse(mContext, R.mipmap.jcw);
+                PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.SINGLE_RES)
+                        .res(R.mipmap.jcw)
+                        .show();
             }
         });
 
@@ -65,10 +87,13 @@ public class MainActivity extends AppCompatActivity {
         btn_res_group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> imageResList = new ArrayList<>();
+                List<Integer> imageResList = new ArrayList<>();
                 imageResList.add(R.mipmap.wyz);
                 imageResList.add(R.mipmap.ywl);
-                ImageBrowseIntent.showResIdImageBrowse(mContext, imageResList, 1);
+                PhotoBrowse.with(MainActivity.this)
+                        .showType(ShowType.MULTIPLE_RES)
+                        .res(imageResList)
+                        .show();
             }
         });
 
@@ -76,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         btn_uri_single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"ImageBrowseIntent.showUriImageBrowse(mContext,uri)",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "To See Source Code", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -84,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         btn_uri_group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"ImageBrowseIntent.showUriImageBrowse(mContext,imageUriList,position)",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "To See Source Code", Toast.LENGTH_SHORT).show();
             }
         });
     }
