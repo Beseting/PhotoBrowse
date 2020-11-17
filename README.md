@@ -17,7 +17,7 @@
 
     allprojects {
         repositories {
-        	...
+            ...
 			maven { url 'https://jitpack.io' }
 		}
 	}
@@ -25,7 +25,7 @@
 #### 2.添加依赖
 
 	dependencies {
-	        implementation 'com.github.Beseting:PhotoBrowse:v{ LAST-VERSION }'
+	        implementation 'com.github.Beseting:PhotoBrowse:v2.0.1'
 	}
 
 ### maven:
@@ -44,7 +44,7 @@
 	<dependency>
         <groupId>com.github.Beseting</groupId>
 	    <artifactId>PhotoBrowse</artifactId>
-	    <version>{ LAST-VERSION }</version>
+	    <version>v2.0.1</version>
 	</dependency>
 
 
