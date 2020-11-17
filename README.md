@@ -25,7 +25,7 @@
 #### 2.添加依赖
 
 	dependencies {
-	        implementation 'com.github.Beseting:PhotoBrowse:v2.0.1'
+	        implementation 'com.github.Beseting:PhotoBrowse:v2.0.2'
 	}
 
 ### maven:
