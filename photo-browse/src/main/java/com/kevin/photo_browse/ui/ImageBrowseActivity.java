@@ -276,8 +276,8 @@ public class ImageBrowseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         DataServer.getInstance().clear();
     }
 }
